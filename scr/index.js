@@ -20,7 +20,7 @@ const usuarios = require("./modulos/usuarios/rutas");
 const ventas = require("./modulos/ventas/rutas");
 
 // Importar conexión a DB
-const pool = require("./db/mysql");
+const pool = require("./bd/mysql");
 
 // Rutas principales
 app.use("/auth", auth);
