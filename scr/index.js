@@ -19,6 +19,9 @@ const productos = require("./modulos/productos/rutas");
 const usuarios = require("./modulos/usuarios/rutas");
 const ventas = require("./modulos/ventas/rutas");
 
+// Importar conexión a DB
+const pool = require("./db/mysql");
+
 // Rutas principales
 app.use("/auth", auth);
 app.use("/productos", productos);
@@ -30,8 +33,20 @@ app.get("/", (req, res) => {
   res.send("Servidor funcionando en Render 🚀");
 });
 
+// Endpoint de prueba para DB
+app.get("/pingdb", async (req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT 1");
+    res.send("Conexión a DB OK 🚀");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error de conexión a DB ❌");
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
 });
+
