@@ -1,5 +1,10 @@
 // Cargar variables de entorno desde .env
-require('dotenv').config();
+// Solo cargar dotenv en local
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+
 
 const express = require('express');
 const app = express();
