@@ -15,7 +15,7 @@ const usuarios = require("./modulos/usuarios/rutas");
 const ventas = require("./modulos/ventas/rutas");
 
 // Rutas principales
-app.use("/", auth);
+app.use("/auth", auth);
 app.use("/productos", productos);
 app.use("/usuarios", usuarios);
 app.use("/ventas", ventas);
