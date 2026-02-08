@@ -1,6 +1,6 @@
 {"name":"poskitsune","version":"1.0.0","description":"","main":"index.js","scripts":{
     "dev":"nodemon scr/index.js",
-"start": "node scr/index.js",
+"start": "node scr/index.js"
 },
 
 "keywords":[],"author":"","license":"ISC","type":"commonjs","dependencies":
