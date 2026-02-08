@@ -7,8 +7,13 @@ const express = require("express");
 const app = express();
 
 app.use(express.json());
-app.use(express.static("scr/publico"));
 
+// Solo sirve estáticos si la carpeta existe
+const path = require("path");
+const publicoPath = path.join(__dirname, "publico");
+app.use(express.static(publicoPath));
+
+// Importar módulos
 const auth = require("./modulos/auth/rutas");
 const productos = require("./modulos/productos/rutas");
 const usuarios = require("./modulos/usuarios/rutas");
